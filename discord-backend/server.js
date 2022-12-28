@@ -6,6 +6,7 @@ const socketServer = require("./socketServer");
 require("dotenv").config();
 
 const authroute = require("./routes/auth.route");
+const friendInvitaionroute = require("./routes/friendInvitaionroute");
 
 const PORT = process.env.PORT || process.env.API_PORT;
 
@@ -16,6 +17,7 @@ app.use(cors());
 
 //register the route
 app.use("/api/auth", authroute);
+app.use("/api/friend_invitation", friendInvitaionroute);
 
 const server = http.createServer(app);
 socketServer.registerSocketServer(server);

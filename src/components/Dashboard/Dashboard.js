@@ -5,7 +5,7 @@ import FriendsSidebar from "./FriendsSidebar/FriendsSidebar";
 import Messenger from "./Messenger/Messenger";
 import Appbar from "./Appbar/Appbar";
 import { logout } from "../Shared/utils/auth";
-import { Connect, connect } from "react-redux";
+import { connect } from "react-redux";
 import { getActions } from "../../store/actions/authAction";
 import { connectWithSocketServer } from "../../realtime/socketConnection";
 
@@ -22,7 +22,7 @@ const Dashboard = ({ setUserDetails }) => {
       logout();
     } else {
       setUserDetails(JSON.parse(userDetails));
-      connectWithSocketServer();
+      connectWithSocketServer(JSON.parse(userDetails));
     }
   }, []);
   return (
